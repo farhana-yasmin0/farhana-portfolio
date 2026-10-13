@@ -17,7 +17,7 @@ export default function Contact() {
       await axios.post(`${API}/api/contact`, data, { timeout: 10000 })
       toast.success('Message sent! I’ll get back to you soon.')
       reset()
-    } catch (err) {
+    } catch (_err) {
       // Fallback: open mail client
       const mailto = `mailto:farhana@example.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(data.message + '\n\n— ' + data.name + ' (' + data.email + ')')}`
       window.location.href = mailto
