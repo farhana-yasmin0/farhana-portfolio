@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 
-type Theme = 'dark' | 'light' | 'brutalist'
+type Theme = 'dark' | 'light' | 'brutalist' | 'neo'
 interface Ctx { theme: Theme; toggle: () => void }
 const ThemeCtx = createContext<Ctx>({ theme: 'dark', toggle: () => {} })
-const cycle: Theme[] = ['dark', 'light', 'brutalist']
+const cycle: Theme[] = ['dark', 'light', 'brutalist', 'neo']
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {

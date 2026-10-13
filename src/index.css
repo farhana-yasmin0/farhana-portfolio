@@ -78,4 +78,33 @@ html.brutalist .h-2.rounded-full { background: #e5e5e5 !important; border: 2px s
 html.brutalist .h-2.rounded-full > div { background: #000 !important; }
 html.brutalist nav { border-bottom: 4px solid #000; }
 html.brutalist header { background: #fff !important; backdrop-filter: none !important; }
+
+/* Neo-brutalist theme overrides */
+html.neo {
+  --bg: #fff7ed;
+  --bg-soft: #ffedd5;
+  --card: #ffffff;
+  --text: #0f0f0f;
+  --muted: #374151;
+  --accent: #ff3ea5;
+  --accent-2: #00d1ff;
+}
+html.neo body { background-image: radial-gradient(#000 1px, transparent 1px); background-size: 18px 18px; }
+html.neo * { border-radius: 14px !important; }
+html.neo .card { border: 3px solid #000 !important; box-shadow: 6px 6px 0 #000 !important; }
+html.neo .glass { background: #fff !important; backdrop-filter: none !important; }
+html.neo .gradient-text { background: linear-gradient(90deg, var(--accent), var(--accent-2)) !important; -webkit-background-clip: text !important; background-clip: text !important; -webkit-text-fill-color: transparent !important; color: transparent !important; }
+html.neo button, html.neo a { border-radius: 14px !important; }
+html.neo input, html.neo textarea { border: 3px solid #000 !important; background: #fff !important; color: #000 !important; box-shadow: 4px 4px 0 #000 !important; }
+html.neo .bg-gradient-to-r { background: var(--accent) !important; }
+html.neo img { border: 4px solid #000 !important; box-shadow: 8px 8px 0 var(--accent-2) !important; filter: none !important; }
+html.neo .card:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 #000 !important; }
+html.neo nav { border-bottom: 4px solid #000; background: #fff !important; backdrop-filter: none !important; }
+html.neo header { background: #fff !important; backdrop-filter: none !important; border-bottom: 4px solid #000; }
+html.neo .animate-pulse { display: none !important; }
+html.neo section { border-bottom: 3px dashed #000; }
+html.neo ::-webkit-scrollbar-thumb { background: var(--accent); }
+html.neo .h-2.rounded-full { background: #e5e5e5 !important; border: 2px solid #000; }
+html.neo .h-2.rounded-full > div { background: linear-gradient(90deg, var(--accent), var(--accent-2)) !important; }
+html.neo .rounded-full { border-radius: 999px !important; }
 `
