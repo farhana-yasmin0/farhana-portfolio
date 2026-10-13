@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi'
+import { FiMenu, FiX } from 'react-icons/fi'
 import { useTheme } from '../context/ThemeContext'
 
 const links = [
@@ -41,8 +41,8 @@ export default function Navbar() {
           ))}
         </ul>
         <div className="flex items-center gap-3">
-          <button onClick={toggle} aria-label="Toggle theme" className="p-2 rounded-full hover:bg-[--bg-soft] transition-colors">
-            {theme === 'dark' ? <FiSun /> : <FiMoon />}
+          <button onClick={toggle} aria-label="Toggle theme" className="px-3 py-2 rounded-full hover:bg-[--bg-soft] transition-colors text-xs font-semibold">
+            {theme === 'dark' ? '🌙 Dark' : theme === 'light' ? '☀️ Light' : '⬛ Brutal'}
           </button>
           <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('#contact') }} className="hidden md:inline-block px-4 py-2 rounded-full bg-gradient-to-r from-[--accent] to-[--accent-2] text-white text-sm font-semibold hover:opacity-90 transition-opacity">Hire Me</a>
           <button className="md:hidden p-2" onClick={() => setOpen(o => !o)} aria-label="Menu">
