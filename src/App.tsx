@@ -1,18 +1,17 @@
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Education from './components/Education'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
-import { Toaster } from 'react-hot-toast'
+import Hero from './sections/Hero'
+import About from './sections/About'
+import Skills from './sections/Skills'
+import Projects from './sections/Projects'
+import Education from './sections/Education'
+import Contact from './sections/Contact'
 
 export default function App() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />
@@ -21,7 +20,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <Toaster position="top-right" />
     </div>
   )
 }

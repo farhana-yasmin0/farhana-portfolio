@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Add Sitemap when the final public URL is known and verified.
+C:\Users\mimo\portfolio-website\.env.example

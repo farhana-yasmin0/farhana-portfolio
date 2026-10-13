@@ -3,19 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Farhana Yasmin — Educator & Digital Marketing Portfolio</title>
-    <meta name="description" content="Portfolio of Farhana Yasmin, educator and digital marketing enthusiast. Teaching, SEO, communication and project coordination." />
-    <meta name="keywords" content="educator, teacher, digital marketing, seo, portfolio, farhana yasmin" />
+    <title>Farhana Yasmin | Creative Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Farhana Yasmin, a Creative Developer exploring AI-assisted creativity, generative media, prompt engineering, and modern web development."
+    />
+    <meta name="keywords" content="Farhana Yasmin, creative developer, portfolio, AI tools, generative AI, prompt engineering, React, TypeScript" />
     <meta name="author" content="Farhana Yasmin" />
-    <meta property="og:title" content="Farhana Yasmin — Educator & Digital Marketer" />
-    <meta property="og:description" content="Portfolio showcasing teaching and digital marketing projects." />
+    <meta name="theme-color" content="#0b0b0d" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Farhana Yasmin | Creative Developer Portfolio" />
+    <meta property="og:description" content="Portfolio of Farhana Yasmin, a Creative Developer exploring AI-assisted creativity, generative media, prompt engineering, and modern web development." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content="/avatar.svg" />
+    <meta property="og:locale" content="en_US" />
+
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="twitter:title" content="Farhana Yasmin | Creative Developer Portfolio" />
+    <meta name="twitter:description" content="Portfolio of Farhana Yasmin, a Creative Developer exploring AI-assisted creativity and modern web development." />
+    <meta name="twitter:image" content="/avatar.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('theme')
+          if (theme !== 'light' && theme !== 'dark') {
+            theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+          }
+          document.documentElement.classList.add(theme)
+        } catch (error) {
+          document.documentElement.classList.add('dark')
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

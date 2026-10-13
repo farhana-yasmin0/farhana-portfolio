@@ -1,15 +1,72 @@
-export type Skill = { name: string; icon: string; level: number; category: 'teaching' | 'marketing' | 'soft' | 'tools' }
-export const skills: Skill[] = [
-  { name: 'Teaching & Classroom Management', icon: '📚', level: 90, category: 'teaching' },
-  { name: 'Lesson Planning', icon: '📝', level: 85, category: 'teaching' },
-  { name: 'Student Assessment', icon: '✅', level: 82, category: 'teaching' },
-  { name: 'Digital Marketing', icon: '📣', level: 75, category: 'marketing' },
-  { name: 'Basic SEO', icon: '🔍', level: 72, category: 'marketing' },
-  { name: 'Social Media Marketing', icon: '📱', level: 78, category: 'marketing' },
-  { name: 'Communication', icon: '💬', level: 95, category: 'soft' },
-  { name: 'Teamwork', icon: '🤝', level: 92, category: 'soft' },
-  { name: 'Time Management', icon: '⏱️', level: 88, category: 'soft' },
-  { name: 'Project Coordination', icon: '📋', level: 78, category: 'soft' },
-  { name: 'Customer Service', icon: '😊', level: 86, category: 'tools' },
-  { name: 'Sales Support', icon: '🛒', level: 80, category: 'tools' },
+import type { LucideIcon } from 'lucide-react'
+import {
+  Atom,
+  Braces,
+  Code2,
+  FileCode2,
+  GitBranch,
+  Github,
+  Globe,
+  Image as ImageIcon,
+  MessageSquareText,
+  Paintbrush,
+  PenTool,
+  Server,
+  Sparkles,
+  Terminal,
+  Video,
+  Wand2,
+  Workflow,
+} from 'lucide-react'
+
+export type Skill = {
+  name: string
+  level?: string
+  icon: LucideIcon
+}
+
+export type SkillCategory = {
+  title: string
+  skills: Skill[]
+}
+
+export const skillCategories: SkillCategory[] = [
+  {
+    title: 'AI & Generative Tools',
+    skills: [
+      { name: 'Artificial Intelligence Tools', level: 'Basic Knowledge', icon: Sparkles },
+      { name: 'Generative AI Tools & Applications', level: 'Basic Knowledge', icon: Wand2 },
+      { name: 'AI-Assisted Content Creation', level: 'Learning', icon: PenTool },
+      { name: 'AI Image & Video Generation', level: 'Learning', icon: ImageIcon },
+      { name: 'AI Coding Assistants', level: 'Learning', icon: Code2 },
+    ],
+  },
+  {
+    title: 'Prompt Engineering',
+    skills: [
+      { name: 'AI Prompt Engineering', level: 'Beginner Level', icon: MessageSquareText },
+      { name: 'Creative Prompt Design', level: 'Beginner Level', icon: PenTool },
+      { name: 'Image and Video Prompt Workflows', level: 'Learning', icon: Video },
+    ],
+  },
+  {
+    title: 'Web Development',
+    skills: [
+      { name: 'HTML', icon: Globe },
+      { name: 'CSS', icon: Paintbrush },
+      { name: 'JavaScript', level: 'Learning', icon: Braces },
+      { name: 'React', level: 'Learning', icon: Atom },
+      { name: 'TypeScript', level: 'Learning', icon: FileCode2 },
+      { name: 'Node.js', level: 'Learning', icon: Server },
+    ],
+  },
+  {
+    title: 'Developer Tools',
+    skills: [
+      { name: 'Git', icon: GitBranch },
+      { name: 'GitHub', icon: Github },
+      { name: 'OpenCode', icon: Terminal },
+      { name: 'AI-Assisted Development Workflows', icon: Workflow },
+    ],
+  },
 ]

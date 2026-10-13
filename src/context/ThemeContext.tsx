@@ -1,29 +1,27 @@
-import { createContext, useContext, useEffect, useState } from 'react'
-
-type Theme = 'dark' | 'light' | 'brutalist' | 'neo'
-interface Ctx { theme: Theme; toggle: () => void }
-const ThemeCtx = createContext<Ctx>({ theme: 'dark', toggle: () => {} })
-const cycle: Theme[] = ['dark', 'light', 'brutalist', 'neo']
+import { useEffect, useState } from 'react'
+import type { Theme, ThemeContextValue } from './theme-context'
+import { ThemeContext } from './theme-context'
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      const fromUrl = new URLSearchParams(window.location.search).get('theme') as Theme
-      if (cycle.includes(fromUrl)) return fromUrl
-      const stored = localStorage.getItem('theme') as Theme
-      return cycle.includes(stored) ? stored : 'dark'
-    }
-    return 'dark'
+    if (typeof window === 'undefined') return 'dark'
+    const stored = window.localStorage.getItem('theme')
+    if (stored === 'dark' || stored === 'light') return stored
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
   })
+
   useEffect(() => {
-    document.documentElement.classList.remove('light', 'dark', 'brutalist')
-    document.documentElement.classList.add(theme)
-    localStorage.setItem('theme', theme)
+    const root = document.documentElement
+    root.classList.remove('dark', 'light')
+    root.classList.add(theme)
+    window.localStorage.setItem('theme', theme)
   }, [theme])
-  return (
-    <ThemeCtx.Provider value={{ theme, toggle: () => setTheme(t => cycle[(cycle.indexOf(t) + 1) % cycle.length]) }}>
-      {children}
-    </ThemeCtx.Provider>
-  )
+
+  const value: ThemeContextValue = {
+    theme,
+    toggleTheme: () => setTheme((current) => (current === 'dark' ? 'light' : 'dark')),
+    setTheme,
+  }
+
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
 }
-export const useTheme = () => useContext(ThemeCtx)

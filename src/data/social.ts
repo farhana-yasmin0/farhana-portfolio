@@ -1,6 +1,7 @@
+import { profile } from './profile'
+
 export const social = {
-  github: 'https://github.com/farhanayasmin',
-  linkedin: 'https://linkedin.com/in/farhanayasmin',
-  twitter: 'https://twitter.com/farhanayasmin',
-  email: 'mailto:farhana@example.com',
+  github: profile.github,
+  linkedin: profile.linkedin,
+  email: profile.emailHref,
 }
