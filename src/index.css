@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+}
+
+:root {
+  --bg: #0b1020;
+  --bg-soft: #111735;
+  --card: #151b36;
+  --text: #e6e9f5;
+  --muted: #a3a9c9;
+  --accent: #6366f1;
+  --accent-2: #a855f7;
+}
+
+:root.light {
+  --bg: #f7f8fc;
+  --bg-soft: #eef0fa;
+  --card: #ffffff;
+  --text: #0b1020;
+  --muted: #4a5173;
+  --accent: #4f46e5;
+  --accent-2: #7c3aed;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  transition: background .3s ease, color .3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+* { box-sizing: border-box; }
+section { scroll-margin-top: 80px; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-soft); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 5px; }
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.card { background: var(--card); border: 1px solid rgba(255,255,255,.06); }
+.light .card { border-color: rgba(0,0,0,.06); }
+.glass { background: rgba(255,255,255,.05); backdrop-filter: blur(12px); }
+`
