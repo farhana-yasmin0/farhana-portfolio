@@ -6,7 +6,7 @@ import { resolve } from 'path'
 export default defineConfig({
   // GitHub Pages project sites are served from /<repo-name>/.
   // Override with VITE_BASE_PATH at build time, or '/' for local development.
-  base: process.env.VITE_BASE_PATH || './',
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
