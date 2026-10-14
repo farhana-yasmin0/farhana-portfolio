@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Code2, ExternalLink, Github, Layers } from 'lucide-react'
+import { Code2, ExternalLink, Github } from 'lucide-react'
 import type { Project } from '../data/projects'
 
 type ProjectCardProps = {
@@ -7,48 +7,24 @@ type ProjectCardProps = {
   index: number
 }
 
-const gradients = [
-  'from-[#d4af37] via-[#8a6f1e] to-[#151518]',
-  'from-[#f2d675] via-[#b8962e] to-[#151518]',
-  'from-[#1f1f23] via-[#d4af37] to-[#0b0b0d]',
-]
-
 export default function ProjectCard({ project, index }: ProjectCardProps) {
-  const gradient = gradients[index % gradients.length]
-
   return (
     <motion.article
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: (index % 2) * 0.12 }}
+      transition={{ duration: 0.5, delay: (index % 2) * 0.12 }}
       className="card group flex flex-col overflow-hidden"
     >
-      <div className={`relative flex h-48 items-end overflow-hidden bg-gradient-to-br ${gradient} p-6`}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_45%)]" />
-        <div className="relative flex items-center gap-3 text-white/90">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-black/25 backdrop-blur-sm">
-            <Layers size={22} aria-hidden="true" />
-          </div>
-          <span className="font-display text-lg font-bold tracking-wide">{project.title}</span>
-        </div>
-        <div className="absolute right-5 top-5">
-          <span
-            className={`badge ${
-              project.status === 'Completed'
-                ? 'border-emerald-400/40 text-emerald-300'
-                : project.status === 'In Development'
-                  ? 'status-in-progress'
-                  : ''
-            }`}
-          >
-            {project.status}
-          </span>
-        </div>
+      <div className="relative flex h-40 items-center justify-center bg-gradient-to-br from-[var(--accent)] to-[var(--accent-2)]">
+        <span className="font-display text-6xl font-bold text-white/25">0{index + 1}</span>
+        <span className="absolute left-5 top-5 rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+          {project.status}
+        </span>
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="mb-2 flex items-center gap-2 font-display text-xl font-bold">
+        <h3 className="mb-2 flex items-center gap-2 font-display text-xl font-bold tracking-tight">
           <Code2 className="text-[var(--accent)]" size={18} aria-hidden="true" />
           {project.title}
         </h3>

@@ -20,7 +20,7 @@ export default function About() {
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.6 }}
             className="space-y-5"
           >
             {profile.about.map((paragraph) => (
@@ -29,13 +29,11 @@ export default function About() {
               </p>
             ))}
 
-            <div className="rounded-2xl bg-[var(--bg-soft)] p-5">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
-                Currently Exploring
-              </p>
-              <ul className="grid gap-2 sm:grid-cols-2">
+            <div className="card p-6">
+              <span className="eyebrow-tag">Currently Exploring</span>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                 {profile.currentlyExploring.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-[var(--text)]">
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-[var(--text)]">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
                     {item}
                   </li>
@@ -44,7 +42,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-1">
+          <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-1">
             {profile.highlights.map((highlight, index) => {
               const Icon = highlightIcons[index % highlightIcons.length]
               return (
@@ -55,12 +53,12 @@ export default function About() {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -4 }}
-                  className="card p-5"
+                  className="card p-6"
                 >
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--bg-soft)] text-[var(--accent)]">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
                     <Icon size={22} aria-hidden="true" />
                   </div>
-                  <h3 className="font-display text-lg font-bold">{highlight.title}</h3>
+                  <h3 className="font-display text-lg font-bold tracking-tight">{highlight.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{highlight.description}</p>
                 </motion.div>
               )

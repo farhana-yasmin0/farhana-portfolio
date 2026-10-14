@@ -12,10 +12,10 @@ function EmptyState({ icon, title, text }: { icon: React.ReactNode; title: strin
       transition={{ duration: 0.5 }}
       className="card flex min-h-[16rem] flex-col items-center justify-center p-8 text-center"
     >
-      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--bg-soft)] text-[var(--accent)]">
+      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--accent-soft)] text-[var(--accent)]">
         {icon}
       </div>
-      <h4 className="font-display text-lg font-bold">{title}</h4>
+      <h4 className="font-display text-lg font-bold tracking-tight">{title}</h4>
       <p className="mt-2 max-w-sm text-sm leading-relaxed text-[var(--muted)]">{text}</p>
     </motion.div>
   )
@@ -26,7 +26,7 @@ export default function Education() {
   const hasCertifications = certifications.length > 0
 
   return (
-    <section id="education" className="bg-[var(--bg-soft)]/45 py-24">
+    <section id="education" className="bg-[var(--bg-soft)] py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Education & Certifications"
@@ -36,7 +36,7 @@ export default function Education() {
 
         <div className="grid gap-8 md:grid-cols-2">
           <div>
-            <h3 className="mb-5 flex items-center gap-2 font-display text-lg font-bold">
+            <h3 className="mb-5 flex items-center gap-2 font-display text-lg font-bold tracking-tight">
               <GraduationCap className="text-[var(--accent)]" size={20} /> Education
             </h3>
             {hasEducation ? (
@@ -46,7 +46,7 @@ export default function Education() {
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
                       {entry.period}
                     </p>
-                    <h4 className="mt-1 font-display text-lg font-bold">{entry.degree}</h4>
+                    <h4 className="mt-1 font-display text-lg font-bold tracking-tight">{entry.degree}</h4>
                     <p className="text-sm text-[var(--muted)]">{entry.institution}</p>
                     {entry.detail && <p className="mt-2 text-sm text-[var(--muted)]">{entry.detail}</p>}
                   </motion.article>
@@ -62,7 +62,7 @@ export default function Education() {
           </div>
 
           <div>
-            <h3 className="mb-5 flex items-center gap-2 font-display text-lg font-bold">
+            <h3 className="mb-5 flex items-center gap-2 font-display text-lg font-bold tracking-tight">
               <Award className="text-[var(--accent)]" size={20} /> Certifications
             </h3>
             {hasCertifications ? (
@@ -70,7 +70,7 @@ export default function Education() {
                 {certifications.map((cert) => (
                   <motion.article key={cert.name} className="card flex items-start justify-between gap-4 p-5">
                     <div>
-                      <h4 className="font-display text-base font-bold">{cert.name}</h4>
+                      <h4 className="font-display text-base font-bold tracking-tight">{cert.name}</h4>
                       <p className="text-sm text-[var(--muted)]">{cert.issuer}</p>
                     </div>
                     <span className="badge shrink-0">{cert.year}</span>

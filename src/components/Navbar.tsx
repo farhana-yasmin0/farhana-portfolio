@@ -58,8 +58,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'border-b border-[var(--border)] bg-[var(--bg)]/85 backdrop-blur-xl' : 'bg-transparent'
+      className={`nav-surface fixed inset-x-0 top-0 z-50 transition-shadow duration-200 ${
+        scrolled ? 'border-b border-[var(--border)] shadow-[var(--shadow-sm)]' : 'border-b border-transparent'
       }`}
     >
       <nav
@@ -72,13 +72,15 @@ export default function Navbar() {
             event.preventDefault()
             scrollTo('#home')
           }}
-          className="flex items-center gap-2 font-display text-lg font-bold tracking-wide text-[var(--text)]"
+          className="flex items-center gap-2.5"
         >
-          <Sparkles className="text-[var(--accent)]" size={18} aria-hidden="true" />
-          <span className="gradient-text">FARHANA YASMIN</span>
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent)] to-[var(--accent-2)] text-white shadow-[var(--shadow-sm)]">
+            <Sparkles size={17} aria-hidden="true" />
+          </span>
+          <span className="font-display text-base font-bold tracking-tight">Farhana Yasmin</span>
         </a>
 
-        <ul className="hidden items-center gap-7 md:flex">
+        <ul className="hidden items-center gap-1 md:flex">
           {links.map((link) => (
             <li key={link.href}>
               <a
@@ -87,8 +89,10 @@ export default function Navbar() {
                   event.preventDefault()
                   scrollTo(link.href)
                 }}
-                className={`text-sm font-medium transition-colors focus-visible:outline-none ${
-                  active === link.href ? 'text-[var(--accent)]' : 'text-[var(--muted)] hover:text-[var(--text)]'
+                className={`block rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+                  active === link.href
+                    ? 'bg-[var(--accent-soft)] text-[var(--accent)]'
+                    : 'text-[var(--muted)] hover:text-[var(--text)]'
                 }`}
                 aria-current={active === link.href ? 'page' : undefined}
               >
@@ -103,12 +107,12 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
-            className="rounded-full p-2 text-[var(--text)] transition hover:bg-[var(--bg-soft)] md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--card)] text-[var(--text)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] md:hidden"
             aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={open}
             aria-controls="mobile-navigation"
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
@@ -120,10 +124,10 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22 }}
-            className="overflow-hidden border-t border-[var(--border)] bg-[var(--bg)]/96 backdrop-blur-xl md:hidden"
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden border-t border-[var(--border)] bg-[var(--bg)] md:hidden"
           >
-            <ul className="flex flex-col gap-1 px-4 py-3">
+            <ul className="flex flex-col gap-1 px-4 py-4">
               {links.map((link) => (
                 <li key={link.href}>
                   <a
@@ -132,10 +136,10 @@ export default function Navbar() {
                       event.preventDefault()
                       scrollTo(link.href)
                     }}
-                    className={`block rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
+                    className={`block rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors ${
                       active === link.href
-                        ? 'bg-[var(--bg-soft)] text-[var(--accent)]'
-                        : 'text-[var(--muted)] hover:bg-[var(--bg-soft)] hover:text-[var(--text)]'
+                        ? 'bg-[var(--accent-soft)] text-[var(--accent)]'
+                        : 'text-[var(--muted)] hover:text-[var(--text)]'
                     }`}
                   >
                     {link.label}

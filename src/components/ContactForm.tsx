@@ -12,6 +12,8 @@ type FormData = {
 type Status = { type: 'idle' | 'success' | 'error' | 'info'; message: string }
 type FormStatus = Status
 
+const labelClass = 'mb-1.5 block text-sm font-medium text-[var(--text)]'
+
 export default function ContactForm() {
   const {
     register,
@@ -69,33 +71,35 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="card space-y-4 p-6" noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} className="card space-y-4 p-6 sm:p-8" noValidate>
       <div>
-        <label htmlFor="contact-name" className="mb-1 block text-sm font-medium">
+        <label htmlFor="contact-name" className={labelClass}>
           Name
         </label>
         <input
           id="contact-name"
           type="text"
           autoComplete="name"
+          aria-invalid={errors.name ? 'true' : 'false'}
           {...register('name', {
             required: 'Name is required',
             minLength: { value: 2, message: 'Name must be at least 2 characters' },
           })}
-          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-soft)] px-4 py-3 text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+          className="nb-input"
           placeholder="Your name"
         />
-        {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name.message}</p>}
+        {errors.name && <p className="mt-1.5 text-xs text-red-500">{errors.name.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="contact-email" className="mb-1 block text-sm font-medium">
+        <label htmlFor="contact-email" className={labelClass}>
           Email
         </label>
         <input
           id="contact-email"
           type="email"
           autoComplete="email"
+          aria-invalid={errors.email ? 'true' : 'false'}
           {...register('email', {
             required: 'Email is required',
             pattern: {
@@ -103,56 +107,58 @@ export default function ContactForm() {
               message: 'Please enter a valid email address',
             },
           })}
-          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-soft)] px-4 py-3 text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+          className="nb-input"
           placeholder="you@example.com"
         />
-        {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email.message}</p>}
+        {errors.email && <p className="mt-1.5 text-xs text-red-500">{errors.email.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="contact-subject" className="mb-1 block text-sm font-medium">
+        <label htmlFor="contact-subject" className={labelClass}>
           Subject
         </label>
         <input
           id="contact-subject"
           type="text"
+          aria-invalid={errors.subject ? 'true' : 'false'}
           {...register('subject', { required: 'Subject is required' })}
-          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-soft)] px-4 py-3 text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+          className="nb-input"
           placeholder="What would you like to discuss?"
         />
-        {errors.subject && <p className="mt-1 text-xs text-red-400">{errors.subject.message}</p>}
+        {errors.subject && <p className="mt-1.5 text-xs text-red-500">{errors.subject.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="contact-message" className="mb-1 block text-sm font-medium">
+        <label htmlFor="contact-message" className={labelClass}>
           Message
         </label>
         <textarea
           id="contact-message"
           rows={5}
+          aria-invalid={errors.message ? 'true' : 'false'}
           {...register('message', {
             required: 'Message is required',
             minLength: { value: 10, message: 'Message must be at least 10 characters' },
           })}
-          className="w-full resize-none rounded-xl border border-[var(--border)] bg-[var(--bg-soft)] px-4 py-3 text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+          className="nb-input resize-none"
           placeholder="Tell me about your idea or question..."
         />
-        {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message.message}</p>}
+        {errors.message && <p className="mt-1.5 text-xs text-red-500">{errors.message.message}</p>}
       </div>
 
-      <button type="submit" disabled={isSubmitting} className="btn-primary w-full justify-center disabled:opacity-60">
+      <button type="submit" disabled={isSubmitting} className="btn-primary w-full justify-center">
         <Send size={18} /> {isSubmitting ? 'Sending...' : 'Send Message'}
       </button>
 
       {status.type !== 'idle' && (
         <p
           role="status"
-          className={`text-sm ${
+          className={`rounded-xl px-4 py-3 text-sm font-medium ${
             status.type === 'success'
-              ? 'text-emerald-400'
+              ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
               : status.type === 'error'
-                ? 'text-red-400'
-                : 'text-[var(--muted)]'
+                ? 'bg-red-500/10 text-red-600 dark:text-red-400'
+                : 'bg-[var(--bg-soft)] text-[var(--muted)]'
           }`}
         >
           {status.message}

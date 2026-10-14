@@ -17,32 +17,30 @@ export default function Hero() {
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const socialClass =
+    'flex h-12 w-12 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] text-[var(--muted)] shadow-[var(--shadow-sm)] transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent)]'
+
   return (
-    <section
-      id="home"
-      className="relative flex min-h-screen items-center overflow-hidden pt-16"
-    >
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-[-6rem] top-1/4 h-72 w-72 rounded-full bg-[var(--accent)]/18 blur-3xl" />
-        <div className="absolute bottom-1/4 right-[-6rem] h-96 w-96 rounded-full bg-[var(--accent-2)]/12 blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,55,0.08),transparent_35%)]" />
+    <section id="home" className="relative flex min-h-screen items-center overflow-hidden pt-16">
+      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div className="absolute -left-32 top-0 h-96 w-96 rounded-full bg-[var(--accent)]/20 blur-3xl" />
+        <div className="absolute right-[-8rem] top-1/3 h-[26rem] w-[26rem] rounded-full bg-[var(--accent-2)]/18 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-[var(--accent-3)]/12 blur-3xl" />
       </div>
 
-      <div className="mx-auto grid w-full max-w-6xl gap-12 px-4 py-20 sm:px-6 md:grid-cols-2 md:items-center">
+      <div className="mx-auto grid w-full max-w-6xl gap-14 px-4 py-20 sm:px-6 md:grid-cols-2 md:items-center">
         <motion.div
           initial={{ opacity: 0, x: -36 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
         >
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent)]">
-            {profile.intro}
-          </p>
-          <h1 className="font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
+          <span className="eyebrow-tag">{profile.intro}</span>
+          <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
             {profile.heroTitle}
           </h1>
-          <p className="mt-3 text-xl font-medium text-[var(--muted)] sm:text-2xl">{profile.heroSubtitle}</p>
+          <p className="mt-3 text-lg font-medium text-[var(--muted)] sm:text-xl">{profile.heroSubtitle}</p>
 
-          <div className="mt-5 flex h-9 items-center text-xl font-medium text-[var(--accent)] sm:text-2xl">
+          <div className="mt-5 flex h-9 items-center text-xl font-semibold text-[var(--accent)] sm:text-2xl">
             <AnimatePresence mode="wait">
               <motion.span
                 key={profile.heroPhrases[phraseIndex]}
@@ -71,13 +69,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-8 flex items-center gap-3">
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub profile"
-              className="rounded-full border border-[var(--border)] bg-[var(--glass)] p-3 text-[var(--muted)] transition hover:-translate-y-0.5 hover:text-[var(--text)]"
-            >
+            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub profile" className={socialClass}>
               <Github size={19} />
             </a>
             <a
@@ -85,15 +77,11 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn profile"
-              className="rounded-full border border-[var(--border)] bg-[var(--glass)] p-3 text-[var(--muted)] transition hover:-translate-y-0.5 hover:text-[var(--text)]"
+              className={socialClass}
             >
               <Linkedin size={19} />
             </a>
-            <a
-              href={profile.emailHref}
-              aria-label="Send an email"
-              className="rounded-full border border-[var(--border)] bg-[var(--glass)] p-3 text-[var(--muted)] transition hover:-translate-y-0.5 hover:text-[var(--text)]"
-            >
+            <a href={profile.emailHref} aria-label="Send an email" className={socialClass}>
               <Mail size={19} />
             </a>
           </div>
@@ -106,13 +94,12 @@ export default function Hero() {
           className="flex justify-center"
         >
           <div className="relative">
-            <div className="absolute -inset-8 rounded-full bg-gradient-to-tr from-[var(--accent)]/28 to-[var(--accent-2)]/12 blur-3xl" />
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative rounded-full bg-gradient-to-tr from-[var(--accent)] to-[var(--accent-2)] p-1.5 shadow-2xl shadow-[var(--glow)]"
+              className="relative rounded-full bg-gradient-to-tr from-[var(--accent)] to-[var(--accent-2)] p-1.5 shadow-[var(--shadow-md)]"
             >
-              <div className="overflow-hidden rounded-full bg-[var(--card)]">
+              <div className="overflow-hidden rounded-full border-4 border-[var(--card)]">
                 <img
                   src={profile.avatarSrc}
                   alt={profile.avatarAlt}
@@ -126,7 +113,7 @@ export default function Hero() {
             <motion.span
               animate={{ y: [0, -12, 0], x: [0, 6, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -left-2 top-10 h-4 w-4 rounded-full bg-[var(--accent)] shadow-lg shadow-[var(--glow)]"
+              className="absolute -left-2 top-10 h-4 w-4 rounded-full bg-[var(--accent)] shadow-[var(--shadow-sm)]"
             />
             <motion.span
               animate={{ y: [0, 10, 0], x: [0, -6, 0] }}

@@ -4,7 +4,7 @@ import { skillCategories } from '../data/skills'
 
 export default function Skills() {
   return (
-    <section id="skills" className="bg-[var(--bg-soft)]/45 py-24">
+    <section id="skills" className="bg-[var(--bg-soft)] py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="My Skills"
@@ -15,7 +15,9 @@ export default function Skills() {
         <div className="space-y-12">
           {skillCategories.map((category, categoryIndex) => (
             <div key={category.title}>
-              <h3 className="mb-5 font-display text-xl font-bold text-[var(--text)]">{category.title}</h3>
+              <h3 className="mb-5 font-display text-xl font-bold tracking-tight text-[var(--text)]">
+                {category.title}
+              </h3>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {category.skills.map((skill, skillIndex) => (
                   <SkillCard

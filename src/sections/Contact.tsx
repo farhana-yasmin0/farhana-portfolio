@@ -32,7 +32,7 @@ export default function Contact() {
                 href={profile.emailHref}
                 className="card flex items-center gap-4 p-4 transition hover:-translate-y-0.5"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--bg-soft)] text-[var(--accent)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
                   <Mail size={20} />
                 </div>
                 <div>
@@ -47,7 +47,7 @@ export default function Contact() {
                 rel="noreferrer"
                 className="card flex items-center gap-4 p-4 transition hover:-translate-y-0.5"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--bg-soft)] text-[var(--accent)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
                   <Github size={20} />
                 </div>
                 <div>
@@ -62,7 +62,7 @@ export default function Contact() {
                 rel="noreferrer"
                 className="card flex items-center gap-4 p-4 transition hover:-translate-y-0.5"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--bg-soft)] text-[var(--accent)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
                   <Linkedin size={20} />
                 </div>
                 <div>

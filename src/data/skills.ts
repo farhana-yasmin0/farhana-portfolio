@@ -22,6 +22,8 @@ import {
 export type Skill = {
   name: string
   level?: string
+  /** Approximate proficiency used for animated progress bars (0-100). */
+  progress?: number
   icon: LucideIcon
 }
 
