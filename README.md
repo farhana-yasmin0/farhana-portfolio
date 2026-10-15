@@ -156,7 +156,7 @@ The production build is created in `dist/`.
 
 ## GitHub Pages Deployment
 
-This repository has no verified Git remote yet. To deploy:
+The Git remote is connected to https://github.com/farhana-yasmin0/farhana-portfolio.git and the site is live at https://farhana-yasmin0.github.io/farhana-portfolio/. To redeploy:
 
 1. Create a new GitHub repository.
 2. Connect it as the remote:
