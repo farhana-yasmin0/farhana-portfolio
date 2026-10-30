@@ -12,12 +12,16 @@
     "test": "npm run typecheck && npm run lint"
   },
   "dependencies": {
+    "@react-three/drei": "^10.0.0",
+    "@react-three/fiber": "^9.0.0",
     "framer-motion": "^14.1.0",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.460.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.90.0",
-    "react-hot-toast": "^2.6.1"
+    "react-hot-toast": "^2.6.1",
+    "three": "^0.179.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
